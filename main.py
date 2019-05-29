@@ -114,7 +114,7 @@ def main():
     os.environ['MASTER_ADDR'] = master_worker.split(":")[0]
     os.environ['MASTER_PORT'] = master_worker.split(":")[1]
 
-    print("parameter server",ps)
+    # print("parameter server",ps)
     print("master_worker",master_worker)
     print("job_type",job_type)
 
