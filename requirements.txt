@@ -1,0 +1,4 @@
+# add if not in dockerfile
+#torch
+#torchvision
+gradient-sdk
