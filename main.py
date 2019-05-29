@@ -103,8 +103,7 @@ def main():
 ###########prod##################
 
     get_tf_config()
-    metadata=os.environ["TF_CONFIG"]
-
+    metadata=json.loads(os.environ["TF_CONFIG"])
     cluster = metadata.get('cluster')
     workers=cluster.get("worker",[])
     master_worker=workers[0]
