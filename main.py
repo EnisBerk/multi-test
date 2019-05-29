@@ -100,9 +100,10 @@ def main():
 
 #     if args.dist_url == "env://" and args.world_size == -1:
 #         args.world_size = int(os.environ["WORLD_SIZE"])
-    get_tf_config()
+###########prod##################
 
-#     metadata=os.environ["TF_CONFIG"]
+    get_tf_config()
+    metadata=os.environ["TF_CONFIG"]
 
     cluster = metadata.get('cluster')
     workers=cluster.get("worker",[])
@@ -110,6 +111,15 @@ def main():
     job_type = metadata.get('task', {}).get('type')
     task_index = metadata.get('task', {}).get('index')
     args.rank=task_index
+
+###########test##################
+    # cluster = {}
+    # workers=["127.0.0.0:5000"]#cluster.get("worker",[])
+    # master_worker=workers[0]
+    # job_type = "master"#metadata.get('task', {}).get('type')
+    # task_index = "0" #metadata.get('task', {}).get('index')
+    # args.rank= 0 #task_index
+#############################
 
     os.environ['MASTER_ADDR'] = master_worker.split(":")[0]
     os.environ['MASTER_PORT'] = master_worker.split(":")[1]
