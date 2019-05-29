@@ -1,11 +1,11 @@
 version: 1
 type: "multi-grpc"
 ports: "5000"
-# parameter-server:
-#   container: "tensorflow/tensorflow:1.13.1-py3"
-#   command: "pip install -r requirements.txt && python mnist.py"
-#   machine-type: "G1"
-#   count: 1
+parameter-server:
+  container: "paperspace/fastai:1.0-CUDA9.2-base-3.0-v1.0.6"
+  command: "pip install -r requirements.txt && python main.py"
+  machine-type: "G1"
+  count: 1
 worker:
   container: "paperspace/fastai:1.0-CUDA9.2-base-3.0-v1.0.6"
   command: "pip install -r requirements.txt && python main.py"
