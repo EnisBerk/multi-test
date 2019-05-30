@@ -106,7 +106,8 @@ def main():
     metadata=json.loads(os.environ["TF_CONFIG"])
     cluster = metadata.get('cluster')
     workers=cluster.get("worker",[])
-    master_worker=workers[0]
+    # master_worker=workers[0]
+    master_worker=cluster.get("master",[])
     job_type = metadata.get('task', {}).get('type')
     task_index = metadata.get('task', {}).get('index')
     if job_type=="master":
