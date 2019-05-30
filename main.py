@@ -130,7 +130,7 @@ def main():
     print("master_worker",master_worker)
     print("job_type",job_type)
 
-    args.world_size = int(len(workers))
+    args.world_size = int(len(workers))+1
 
     args.distributed = args.world_size > 1 or args.multiprocessing_distributed
 
