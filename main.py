@@ -109,7 +109,10 @@ def main():
     master_worker=workers[0]
     job_type = metadata.get('task', {}).get('type')
     task_index = metadata.get('task', {}).get('index')
-    args.rank=task_index
+    if job_type=="master":
+        args.rank=0
+    else:
+        args.rank=task_index+1
 
 ###########test##################
     # cluster = {}
